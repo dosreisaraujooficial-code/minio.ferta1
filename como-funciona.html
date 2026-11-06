@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como comprar | Afiliado Livre</title>
+  <meta name="description" content="Entenda como comprar com segurança pelo Afiliado Livre. A compra é finalizada no Mercado Livre." />
+  <meta name="theme-color" content="#FFE600" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FFE600' width='100' height='100' rx='20'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='%232D3277' font-family='sans-serif' font-weight='bold'>M</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --yellow: #FFE600; --blue: #3483FA; --green: #00A650; --text: #333; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #EBEBEB; color: var(--text); line-height: 1.5; }
+    a { color: var(--blue); text-decoration: none; }
+    .header {
+      background: var(--yellow);
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .back { font-size: 22px; color: #2D3277; background: none; border: none; cursor: pointer; }
+    .logo {
+      display: flex; align-items: center;
+    }
+    .logo img {
+      height: 34px; width: auto; max-width: 150px;
+      object-fit: contain; border-radius: 6px; display: block;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; padding: 20px 16px 60px; }
+    .card {
+      background: white; border-radius: 12px; padding: 22px 18px;
+      margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 22px; margin-bottom: 8px; }
+    h2 { font-size: 17px; margin-bottom: 12px; color: #222; }
+    p { font-size: 14px; color: #444; margin-bottom: 10px; }
+    .step {
+      display: flex; gap: 14px; margin-bottom: 18px; align-items: flex-start;
+    }
+    .step-num {
+      width: 36px; height: 36px; border-radius: 50%; background: var(--blue);
+      color: white; font-weight: 700; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 15px;
+    }
+    .step h3 { font-size: 15px; margin-bottom: 4px; }
+    .step p { font-size: 13px; color: #555; margin: 0; }
+    .highlight {
+      background: #e8f5e9; border-radius: 8px; padding: 14px;
+      font-size: 13px; color: #1b5e20; margin-top: 8px;
+    }
+    .cta {
+      display: block; text-align: center; background: var(--blue); color: white !important;
+      font-weight: 600; padding: 14px; border-radius: 8px; margin-top: 8px;
+    }
+    .muted { font-size: 12px; color: #888; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <button class="back" onclick="location.href='index.html'">←</button>
+    <a href="index.html" class="logo" title="Afiliado Livre">
+      <img src="banner-afiliado.jpg" alt="Afiliado Livre" />
+    </a>
+  </header>
+
+  <div class="wrap">
+    <div class="card">
+      <h1>Como comprar com segurança</h1>
+      <p>O Afiliado Livre seleciona ofertas e te leva para o <strong>Mercado Livre oficial</strong>. A compra, o pagamento e a entrega acontecem lá — com a mesma proteção de sempre.</p>
+    </div>
+
+    <div class="card">
+      <h2>Passo a passo</h2>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div>
+          <h3>Escolha o produto</h3>
+          <p>Navegue pelas ofertas no nosso site. Cada produto tem fotos, preço e avaliações.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Clique em “Comprar agora”</h3>
+          <p>Você será redirecionado para a página oficial do produto no Mercado Livre.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Finalize no Mercado Livre</h3>
+          <p>Pagamento, frete, prazo e garantia ficam todos no ambiente seguro do Mercado Livre.</p>
+        </div>
+      </div>
+      <div class="highlight">
+        🛡️ <strong>Importante:</strong> nós não recebemos seu pagamento. Tudo é processado pelo Mercado Livre, com proteção ao comprador.
+      </div>
+    </div>
+
+    <div class="card" id="sobre">
+      <h2>Sobre o Afiliado Livre</h2>
+      <p>Somos um catálogo de ofertas selecionadas. Nosso objetivo é facilitar a descoberta de bons produtos com frete grátis e preço competitivo.</p>
+      <p>Trabalhamos com links de afiliados: quando você compra pelo nosso link, podemos receber uma comissão do Mercado Livre, <strong>sem nenhum custo extra para você</strong>.</p>
+      <p class="muted">Dúvidas? Fale conosco pelo WhatsApp ou Instagram no rodapé da loja.</p>
+      <a class="cta" href="index.html">Voltar para as ofertas</a>
+    </div>
+  </div>
+</body>
+</html>

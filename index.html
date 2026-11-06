@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Afiliado Livre | Ofertas com Frete Grátis</title>
+  <meta name="description" content="Ofertas selecionadas com frete grátis. Compra segura pelo Mercado Livre. Receba em casa com proteção ao comprador." />
+  <meta name="theme-color" content="#FFE600" />
+  <!-- Open Graph (quando compartilha no Instagram/WhatsApp/TikTok) -->
+  <meta property="og:title" content="Afiliado Livre | Ofertas com Frete Grátis" />
+  <meta property="og:description" content="Ofertas selecionadas. Compra 100% pelo Mercado Livre, com frete grátis e proteção ao comprador." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="banner-afiliado.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FFE600' width='100' height='100' rx='20'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='%232D3277' font-family='sans-serif' font-weight='bold'>A</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="dados.js"></script>
+  <style>
+    :root {
+      --yellow: #FFE600;
+      --green: #00A650;
+      --blue: #3483FA;
+      --text: #333;
+      --text-light: #666;
+      --bg: #EBEBEB;
+      --white: #FFFFFF;
+      --radius: 8px;
+      --shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .header {
+      background: var(--yellow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .header-top {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+      cursor: pointer;
+      user-select: none;
+    }
+    .logo img {
+      height: 36px;
+      width: auto;
+      max-width: 140px;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+      background: #FFE600;
+    }
+    @media (min-width: 480px) {
+      .logo img {
+        height: 42px;
+        max-width: 180px;
+      }
+    }
+
+    .search-box { flex: 1; position: relative; }
+    .search-box input {
+      width: 100%;
+      padding: 10px 40px 10px 14px;
+      border: none;
+      border-radius: 20px;
+      font-size: 14px;
+      background: white;
+      box-shadow: var(--shadow);
+      outline: none;
+    }
+    .search-box input::placeholder { color: #999; }
+    .search-icon {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 16px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Sugestões de pesquisa (autocomplete) */
+    .search-suggestions {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.18);
+      max-height: 380px;
+      overflow-y: auto;
+      z-index: 200;
+      border: 1px solid #eee;
+    }
+    .search-suggestions.active { display: block; }
+    .suggestion-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: background 0.15s;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .suggestion-item:last-child { border-bottom: none; }
+    .suggestion-item:hover,
+    .suggestion-item.active {
+      background: #f5f8ff;
+    }
+    .suggestion-img {
+      width: 44px;
+      height: 44px;
+      object-fit: cover;
+      border-radius: 6px;
+      background: #f0f0f0;
+      flex-shrink: 0;
+    }
+    .suggestion-info {
+      flex: 1;
+      min-width: 0;
+    }
+    .suggestion-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: #333;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .suggestion-title mark {
+      background: #fff3b0;
+      color: inherit;
+      padding: 0 1px;
+      border-radius: 2px;
+    }
+    .suggestion-price {
+      font-size: 13px;
+      font-weight: 600;
+      color: #00A650;
+      margin-top: 2px;
+    }
+    .suggestion-empty {
+      padding: 18px 14px;
+      text-align: center;
+      color: #999;
+      font-size: 13px;
+    }
+    .suggestion-footer {
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #3483FA;
+      text-align: center;
+      border-top: 1px solid #eee;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .suggestion-footer:hover { background: #f5f8ff; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .header-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 4px;
+      color: #2D3277;
+    }
+
+    /* ========== CARROSSEL DE ANÚNCIOS ========== */
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      background: #111;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
+      padding: 18px 16px;
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+    }
+    .carousel-slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 100%);
+    }
+    .carousel-slide.banner-slide {
+      padding: 0;
+      min-height: 0;
+      aspect-ratio: 16 / 9;
+      max-height: 320px;
+    }
+    .carousel-slide.banner-slide::before {
+      display: none;
+    }
+    .carousel-slide.banner-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    @media (max-width: 480px) {
+      .carousel-slide.banner-slide {
+        aspect-ratio: 16 / 10;
+        max-height: 220px;
+      }
+    }
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 70%;
+      color: white;
+      animation: slideInLeft 0.5s ease both;
+    }
+    .slide-badge {
+      display: inline-block;
+      background: #E60012;
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .slide-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 4px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    }
+    .slide-sub {
+      font-size: 13px;
+      opacity: 0.95;
+      margin-bottom: 10px;
+    }
+    .slide-cta {
+      display: inline-block;
+      background: var(--yellow);
+      color: #1a1a1a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+    }
+    .carousel-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 5;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .dot.active {
+      background: white;
+      width: 18px;
+      border-radius: 4px;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      background: rgba(0,0,0,0.35);
+      color: white;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.8;
+    }
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+    @media (max-width: 480px) {
+      .slide-title { font-size: 17px; }
+      .carousel-btn { display: none; }
+    }
+
+    /* ========== ANIMAÇÕES ========== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    .anim-fade-up {
+      animation: fadeUp 0.5s ease both;
+    }
+    .product-card {
+      animation: fadeUp 0.45s ease both;
+    }
+    .product-card:nth-child(1) { animation-delay: 0.05s; }
+    .product-card:nth-child(2) { animation-delay: 0.1s; }
+    .product-card:nth-child(3) { animation-delay: 0.15s; }
+    .product-card:nth-child(4) { animation-delay: 0.2s; }
+    .product-card:nth-child(5) { animation-delay: 0.25s; }
+    .product-card:nth-child(6) { animation-delay: 0.3s; }
+    .product-card:nth-child(7) { animation-delay: 0.35s; }
+    .product-card:nth-child(8) { animation-delay: 0.4s; }
+
+    .product-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product-card:active {
+      transform: scale(0.97);
+    }
+    @media (hover: hover) {
+      .product-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+      }
+    }
+
+    .category-item {
+      transition: transform 0.2s ease;
+    }
+    .category-item:active .category-icon {
+      transform: scale(0.9);
+      background: #fff3b0;
+    }
+    .category-icon {
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .buy-btn {
+      transition: background 0.2s, transform 0.15s;
+    }
+    .buy-btn:active {
+      transform: scale(0.97);
+    }
+
+    .frete-bar {
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+      animation: fadeUp 0.4s ease both;
+    }
+    .frete-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .frete-content span { color: var(--text); }
+
+    .categories {
+      background: white;
+      padding: 16px 0 12px;
+      border-bottom: 1px solid #e8e8e8;
+    }
+    .categories-scroll {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 0 12px;
+      scrollbar-width: none;
+    }
+    .categories-scroll::-webkit-scrollbar { display: none; }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      min-width: 68px;
+      cursor: pointer;
+    }
+    .category-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #f5f5f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      border: 1px solid #eee;
+    }
+    .category-name {
+      font-size: 11px;
+      color: var(--text);
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 12px 40px;
+    }
+    .section { margin-bottom: 24px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .section-title { font-size: 18px; font-weight: 600; }
+    .section-link { font-size: 13px; color: var(--blue); font-weight: 500; }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (min-width: 600px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    }
+    @media (min-width: 900px) {
+      .products-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .product-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: fadeUp 0.45s ease both;
+    }
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background: #fafafa;
+      overflow: hidden;
+    }
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .discount-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 6px;
+      border-radius: 4px;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    .product-info {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .product-title {
+      font-size: 13px;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      line-height: 1.3;
+      min-height: 34px;
+    }
+    .product-price-old {
+      font-size: 12px;
+      color: #999;
+      text-decoration: line-through;
+    }
+    .product-price { font-size: 18px; font-weight: 600; margin: 2px 0; }
+    .product-discount { font-size: 12px; color: var(--green); font-weight: 500; }
+    .product-shipping { font-size: 12px; color: var(--green); font-weight: 500; margin-top: 4px; }
+    .product-sold { font-size: 11px; color: #999; margin-top: 2px; }
+
+    .buy-btn {
+      display: block;
+      width: 100%;
+      margin-top: 10px;
+      padding: 9px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+    }
+    .buy-btn:hover { background: #2968c8; }
+
+    .horizontal-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+    .horizontal-scroll::-webkit-scrollbar { display: none; }
+    .horizontal-scroll .product-card {
+      min-width: 160px;
+      max-width: 160px;
+      flex-shrink: 0;
+    }
+    @media (min-width: 600px) {
+      .horizontal-scroll .product-card { min-width: 180px; max-width: 180px; }
+    }
+
+    .benefits-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .benefits-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .benefit-item {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+    }
+    .benefit-text { font-size: 12px; color: var(--text-light); }
+    .benefits-cta {
+      display: block;
+      width: 100%;
+      margin-top: 16px;
+      padding: 12px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: white;
+      border-top: 1px solid #e0e0e0;
+      padding: 24px 12px 40px;
+      text-align: center;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #999;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+
+    /* Trust bar */
+    .trust-bar {
+      background: white;
+      border-bottom: 1px solid #eee;
+      padding: 12px;
+    }
+    .trust-items {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    @media (min-width: 700px) {
+      .trust-items { grid-template-columns: repeat(4, 1fr); }
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #444;
+      padding: 6px 4px;
+    }
+    .trust-item span { font-size: 18px; flex-shrink: 0; }
+    .trust-item strong { display: block; font-size: 12px; color: #222; }
+
+    /* Social proof */
+    .proof-section {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .proof-header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .proof-header h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .proof-header p {
+      font-size: 13px;
+      color: #666;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media (min-width: 600px) {
+      .proof-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .proof-card {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+    }
+    .proof-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #555;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .proof-stars { color: #f5a623; font-size: 13px; margin-bottom: 4px; }
+    .proof-text { font-size: 13px; color: #444; line-height: 1.4; }
+    .proof-name { font-size: 12px; color: #888; margin-top: 6px; }
+
+    .how-banner {
+      background: linear-gradient(135deg, #2D3277 0%, #3483FA 100%);
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-bottom: 24px;
+      color: white;
+      text-align: center;
+    }
+    .how-banner h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+    .how-banner p {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 14px;
+      line-height: 1.5;
+    }
+    .how-banner a {
+      display: inline-block;
+      background: var(--yellow);
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 10px 18px;
+      border-radius: 20px;
+    }
+
+    /* WhatsApp float */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+      font-size: 28px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+    .whatsapp-float:active {
+      transform: scale(0.92);
+    }
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .footer-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .footer-disclaimer {
+      font-size: 11px;
+      color: #aaa;
+      max-width: 480px;
+      margin: 12px auto 0;
+      line-height: 1.5;
+    }
+
+    .loading { text-align: center; padding: 40px; color: #999; }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-top">
+      <a href="index.html" class="logo" title="Afiliado Livre">
+        <img src="banner-afiliado.jpg" alt="Afiliado Livre" />
+      </a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Estou buscando..." autocomplete="off" />
+        <span class="search-icon">🔍</span>
+        <div class="search-suggestions" id="searchSuggestions"></div>
+      </div>
+      <div class="header-actions">
+        <button class="header-btn" onclick="showToast('Menu em breve')">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CARROSSEL DE ANÚNCIOS -->
+  <section class="carousel" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <!-- Banner principal Afiliado Livre -->
+      <div class="carousel-slide banner-slide" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
+        <img src="banner-afiliado.jpg" alt="Afiliado Livre - Encontre os melhores produtos" />
+      </div>
+      <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1555529902-5261145633bf?w=900&h=400&fit=crop')">
+        <div class="slide-content">
+          <div class="slide-badge">Casa & Decoração</div>
+          <div class="slide-title">Espelhos com até 57% OFF</div>
+          <div class="slide-sub">Transforme sua casa hoje</div>
+          <button class="slide-cta" onclick="filterCategory('casa')">Ver produtos</button>
+        </div>
+      </div>
+      <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=900&h=400&fit=crop')">
+        <div class="slide-content">
+          <div class="slide-badge">Eletrônicos</div>
+          <div class="slide-title">Fones e gadgets em promoção</div>
+          <div class="slide-sub">Frete grátis a partir de R$ 19</div>
+          <button class="slide-cta" onclick="filterCategory('eletronicos')">Conferir</button>
+        </div>
+      </div>
+      <div class="carousel-slide" style="background-image:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=900&h=400&fit=crop')">
+        <div class="slide-content">
+          <div class="slide-badge">Beleza</div>
+          <div class="slide-title">Organizadores e acessórios</div>
+          <div class="slide-sub">Até 44% de desconto</div>
+          <button class="slide-cta" onclick="filterCategory('beleza')">Ver agora</button>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn prev" id="carouselPrev" aria-label="Anterior">‹</button>
+    <button class="carousel-btn next" id="carouselNext" aria-label="Próximo">›</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <div class="frete-bar">
+    <div class="frete-content">
+      🚚 <strong>Frete grátis</strong> <span>em milhões de produtos a partir de R$ 19</span>
+    </div>
+  </div>
+
+  <!-- Selos de confiança -->
+  <div class="trust-bar">
+    <div class="trust-items">
+      <div class="trust-item">
+        <span>🛡️</span>
+        <div><strong>Compra protegida</strong>Pelo Mercado Livre</div>
+      </div>
+      <div class="trust-item">
+        <span>📦</span>
+        <div><strong>Entrega garantida</strong>Direto do vendedor</div>
+      </div>
+      <div class="trust-item">
+        <span>💳</span>
+        <div><strong>Pagamento seguro</strong>No checkout oficial</div>
+      </div>
+      <div class="trust-item">
+        <span>↩️</span>
+        <div><strong>Devolução fácil</strong>Política do ML</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="categories">
+    <div class="categories-scroll">
+      <div class="category-item" onclick="filterCategory('todos')">
+        <div class="category-icon">🏠</div>
+        <span class="category-name">Todos</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('casa')">
+        <div class="category-icon">🛋️</div>
+        <span class="category-name">Casa</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('eletronicos')">
+        <div class="category-icon">📱</div>
+        <span class="category-name">Eletrônicos</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('beleza')">
+        <div class="category-icon">💄</div>
+        <span class="category-name">Beleza</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('moda')">
+        <div class="category-icon">👕</div>
+        <span class="category-name">Moda</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('ofertas')">
+        <div class="category-icon">🔥</div>
+        <span class="category-name">Ofertas</span>
+      </div>
+      <div class="category-item" onclick="filterCategory('maisvendidos')">
+        <div class="category-icon">⭐</div>
+        <span class="category-name">Mais Vendidos</span>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main">
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Ofertas em destaque</h2>
+        <a href="#produtos" class="section-link">Ver mais ›</a>
+      </div>
+      <div class="products-grid" id="destaque"></div>
+    </section>
+
+    <div class="benefits-card">
+      <h3 class="benefits-title">POR QUE COMPRAR AQUI?</h3>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div style="font-size:32px;margin-bottom:6px">🚚</div>
+          <div class="benefit-text">Frete grátis rápido<br>em produtos a partir de R$ 19</div>
+        </div>
+        <div class="benefit-item">
+          <div style="font-size:32px;margin-bottom:6px">🛡️</div>
+          <div class="benefit-text">Compra 100% no<br>Mercado Livre oficial</div>
+        </div>
+      </div>
+      <p style="text-align:center;font-size:12px;color:#666;margin:12px 0 0;line-height:1.5">
+        Você escolhe o produto aqui e finaliza a compra no site oficial do Mercado Livre,<br>
+        com a mesma segurança, frete e garantia de sempre.
+      </p>
+      <button class="benefits-cta" onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
+        Ver todas as ofertas
+      </button>
+    </div>
+
+    <div class="how-banner">
+      <h3>Como funciona?</h3>
+      <p>1. Escolha o produto → 2. Clique em comprar → 3. Finalize no Mercado Livre com segurança</p>
+      <a href="como-funciona.html">Entender o passo a passo</a>
+    </div>
+
+    <section class="section" id="produtos">
+      <div class="section-header">
+        <h2 class="section-title">Inspirado no que você viu</h2>
+      </div>
+      <div class="products-grid" id="todos-produtos"></div>
+    </section>
+
+    <!-- Prova social -->
+    <div class="proof-section">
+      <div class="proof-header">
+        <h2>O que dizem quem já comprou</h2>
+        <p>Avaliações de clientes reais sobre os produtos</p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <div class="proof-avatar">A</div>
+          <div>
+            <div class="proof-stars">★★★★★</div>
+            <div class="proof-text">“Chegou super bem embalado e o espelho é lindo demais! Ficou perfeito na minha sala.”</div>
+            <div class="proof-name">Ana Paula R. · Casa</div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-avatar">P</div>
+          <div>
+            <div class="proof-stars">★★★★★</div>
+            <div class="proof-text">“Uso todo dia na moto e não cai nunca. Melhor custo-benefício que já comprei.”</div>
+            <div class="proof-name">Pedro H. · Eletrônicos</div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-avatar">B</div>
+          <div>
+            <div class="proof-stars">★★★★★</div>
+            <div class="proof-text">“Organizou minha vida! Tudo fica visível e fácil de pegar. Amei o organizador.”</div>
+            <div class="proof-name">Beatriz C. · Beleza</div>
+          </div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-avatar">T</div>
+          <div>
+            <div class="proof-stars">★★★★★</div>
+            <div class="proof-text">“Som excelente e o cancelamento de ruído realmente funciona. Uso no metrô todos os dias.”</div>
+            <div class="proof-name">Thiago V. · Eletrônicos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Também te interessa</h2>
+      </div>
+      <div class="horizontal-scroll" id="interesses"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="como-funciona.html">Como comprar</a>
+      <a href="como-funciona.html#sobre">Sobre nós</a>
+      <a href="politica.html">Privacidade</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://instagram.com/" target="_blank" rel="noopener" title="Instagram" aria-label="Instagram">📸</a>
+      <a href="https://www.tiktok.com/" target="_blank" rel="noopener" title="TikTok" aria-label="TikTok">🎵</a>
+      <a href="https://wa.me/5511999999999?text=Oi!%20Vim%20pelo%20Afiliado%20Livre" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">💬</a>
+    </div>
+    <p class="footer-text">
+      Afiliado Livre — Ofertas selecionadas com frete grátis.<br>
+      Os produtos são vendidos e entregues pelos vendedores do Mercado Livre.
+    </p>
+    <p class="footer-disclaimer">
+      Este site contém links de afiliados. Ao comprar pelos nossos links, podemos receber uma comissão, sem custo extra para você. A compra, o pagamento e a entrega são realizados exclusivamente no Mercado Livre.
+    </p>
+  </footer>
+
+  <!-- WhatsApp flutuante — TROQUE O NÚMERO -->
+  <a class="whatsapp-float"
+     href="https://wa.me/5511999999999?text=Oi!%20Vim%20pelo%20site%20Afiliado%20Livre%20e%20quero%20saber%20mais"
+     target="_blank"
+     rel="noopener"
+     aria-label="Falar no WhatsApp"
+     title="Fale conosco">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <div class="toast" id="toast"></div>
+
+  
+  <script>
+    let produtos = [];
+
+    // Carrega produtos de dados.js
+    async function loadProdutos() {
+      try {
+        if (window.PRODUTOS_DATA && Array.isArray(window.PRODUTOS_DATA)) {
+          produtos = window.PRODUTOS_DATA;
+        } else {
+          // tenta carregar dados.js dinamicamente
+          await new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = 'dados.js?t=' + Date.now();
+            s.onload = resolve;
+            s.onerror = reject;
+            document.head.appendChild(s);
+          });
+          produtos = window.PRODUTOS_DATA || [];
+        }
+      } catch (e) {
+        console.warn('dados.js não encontrado', e);
+        produtos = [];
+      }
+      renderProducts();
+    }
+
+    function formatPrice(value) {
+      return Number(value).toFixed(2).replace('.', ',');
+    }
+
+    function createProductCard(p) {
+      const productUrl = `produto.html?id=${p.id}`;
+      return `
+        <article class="product-card" data-categoria="${p.categoria || ''}">
+          <a href="${productUrl}">
+            <div class="product-image-wrap">
+              ${p.desconto ? `<span class="discount-badge">${p.desconto}% OFF</span>` : ''}
+              <img class="product-image" src="${p.imagem}" alt="${p.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/400?text=Sem+Imagem'" />
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">${p.titulo}</h3>
+              ${p.precoAntigo ? `<div class="product-price-old">R$ ${formatPrice(p.precoAntigo)}</div>` : ''}
+              <div class="product-price">R$ ${formatPrice(p.preco)}</div>
+              ${p.desconto ? `<div class="product-discount">${p.desconto}% OFF</div>` : ''}
+              ${p.frete ? `<div class="product-shipping">Frete grátis</div>` : ''}
+              ${p.vendidos ? `<div class="product-sold">${p.vendidos} vendidos</div>` : ''}
+            </div>
+          </a>
+          <div style="padding:0 10px 10px">
+            <a href="${productUrl}" class="buy-btn">Ver produto</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProducts() {
+      const destaque = document.getElementById('destaque');
+      const todos = document.getElementById('todos-produtos');
+      const interesses = document.getElementById('interesses');
+      if (!produtos.length) {
+        destaque.innerHTML = '<div class="loading">Nenhum produto cadastrado</div>';
+        todos.innerHTML = '';
+        interesses.innerHTML = '';
+        return;
+      }
+      destaque.innerHTML = produtos.slice(0, 4).map(createProductCard).join('');
+      todos.innerHTML = produtos.map(createProductCard).join('');
+      interesses.innerHTML = produtos.slice(0, 6).map(createProductCard).join('');
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll('#todos-produtos .product-card').forEach(card => {
+        card.style.display = (cat === 'todos' || card.dataset.categoria === cat) ? 'flex' : 'none';
+      });
+      document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+      showToast(cat === 'todos' ? 'Mostrando todos' : `Categoria: ${cat}`);
+    }
+
+    // ========== BUSCA INTELIGENTE (autocomplete) ==========
+    const searchInput = document.getElementById('searchInput');
+    const suggestionsBox = document.getElementById('searchSuggestions');
+    let activeIndex = -1;
+
+    function normalize(str) {
+      return (str || '').toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
+    function highlightMatch(text, term) {
+      if (!term) return text;
+      const normText = normalize(text);
+      const normTerm = normalize(term);
+      const idx = normText.indexOf(normTerm);
+      if (idx === -1) return text;
+      // Aproxima a posição no texto original
+      return text.substring(0, idx) +
+        '<mark>' + text.substring(idx, idx + term.length) + '</mark>' +
+        text.substring(idx + term.length);
+    }
+
+    function getSuggestions(term) {
+      if (!term || term.length < 1) return [];
+      const nTerm = normalize(term);
+      return produtos
+        .filter(p => normalize(p.titulo).includes(nTerm) || normalize(p.categoria || '').includes(nTerm))
+        .slice(0, 8);
+    }
+
+    function renderSuggestions(term) {
+      const results = getSuggestions(term);
+      activeIndex = -1;
+
+      if (!term) {
+        suggestionsBox.classList.remove('active');
+        suggestionsBox.innerHTML = '';
+        return;
+      }
+
+      if (results.length === 0) {
+        suggestionsBox.innerHTML = `<div class="suggestion-empty">Nenhum produto encontrado para "${term}"</div>`;
+        suggestionsBox.classList.add('active');
+        return;
+      }
+
+      suggestionsBox.innerHTML = results.map((p, i) => `
+        <div class="suggestion-item" data-index="${i}" data-id="${p.id}">
+          <img class="suggestion-img" src="${p.imagem}" alt="" onerror="this.src='https://via.placeholder.com/44'" />
+          <div class="suggestion-info">
+            <div class="suggestion-title">${highlightMatch(p.titulo, term)}</div>
+            <div class="suggestion-price">R$ ${formatPrice(p.preco)}${p.frete ? ' · Frete grátis' : ''}</div>
+          </div>
+        </div>
+      `).join('') + `
+        <div class="suggestion-footer" id="seeAllResults">Ver todos os resultados</div>
+      `;
+
+      suggestionsBox.classList.add('active');
+
+      // Clique nos itens → vai para a página do produto
+      suggestionsBox.querySelectorAll('.suggestion-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const id = item.dataset.id;
+          if (id) {
+            window.location.href = `produto.html?id=${id}`;
+          }
+        });
+      });
+
+      document.getElementById('seeAllResults')?.addEventListener('click', () => {
+        filterProductsOnPage(term);
+        suggestionsBox.classList.remove('active');
+        document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+
+    function filterProductsOnPage(term) {
+      const nTerm = normalize(term);
+      document.querySelectorAll('#todos-produtos .product-card').forEach(card => {
+        const title = normalize(card.querySelector('.product-title').textContent);
+        card.style.display = title.includes(nTerm) ? 'flex' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', function(e) {
+      const term = e.target.value.trim();
+      renderSuggestions(term);
+      // Também filtra a grade em tempo real
+      if (term.length >= 2) {
+        filterProductsOnPage(term);
+      } else if (term.length === 0) {
+        document.querySelectorAll('#todos-produtos .product-card').forEach(c => c.style.display = 'flex');
+      }
+    });
+
+    searchInput.addEventListener('keydown', function(e) {
+      const items = suggestionsBox.querySelectorAll('.suggestion-item');
+      if (!suggestionsBox.classList.contains('active') || items.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeIndex = Math.min(activeIndex + 1, items.length - 1);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
+        items[activeIndex]?.scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        items.forEach((el, i) => el.classList.toggle('active', i === activeIndex));
+        items[activeIndex]?.scrollIntoView({ block: 'nearest' });
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (activeIndex >= 0 && items[activeIndex]) {
+          items[activeIndex].click();
+        } else {
+          filterProductsOnPage(searchInput.value);
+          suggestionsBox.classList.remove('active');
+          document.getElementById('produtos').scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (e.key === 'Escape') {
+        suggestionsBox.classList.remove('active');
+      }
+    });
+
+    // Fecha as sugestões ao clicar fora
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.search-box')) {
+        suggestionsBox.classList.remove('active');
+      }
+    });
+
+    searchInput.addEventListener('focus', function() {
+      if (this.value.trim()) renderSuggestions(this.value.trim());
+    });
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    // ========== CARROSSEL ==========
+    (function initCarousel() {
+      const track = document.getElementById('carouselTrack');
+      const slides = track.querySelectorAll('.carousel-slide');
+      const dotsBox = document.getElementById('carouselDots');
+      const total = slides.length;
+      let index = 0;
+      let autoTimer = null;
+      let startX = 0;
+      let isDragging = false;
+
+      // Dots
+      for (let i = 0; i < total; i++) {
+        const d = document.createElement('button');
+        d.className = 'dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsBox.appendChild(d);
+      }
+
+      function goTo(i) {
+        index = (i + total) % total;
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dotsBox.querySelectorAll('.dot').forEach((d, di) => {
+          d.classList.toggle('active', di === index);
+        });
+        // Reinicia animação do texto
+        const content = slides[index].querySelector('.slide-content');
+        if (content) {
+          content.style.animation = 'none';
+          content.offsetHeight; // reflow
+          content.style.animation = 'slideInLeft 0.5s ease both';
+        }
+        resetAuto();
+      }
+
+      function next() { goTo(index + 1); }
+      function prev() { goTo(index - 1); }
+
+      document.getElementById('carouselNext').addEventListener('click', next);
+      document.getElementById('carouselPrev').addEventListener('click', prev);
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(next, 4500);
+      }
+      resetAuto();
+
+      // Touch swipe (mobile)
+      const carousel = document.getElementById('carousel');
+      carousel.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        clearInterval(autoTimer);
+      }, { passive: true });
+
+      carousel.addEventListener('touchend', e => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diff) > 40) {
+          diff < 0 ? next() : prev();
+        } else {
+          resetAuto();
+        }
+      }, { passive: true });
+
+      // Pausa ao segurar o dedo
+      carousel.addEventListener('touchmove', () => {}, { passive: true });
+    })();
+
+    loadProdutos();
+  </script>
+</body>
+</html>

@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Produto | Afiliado Livre</title>
+  <meta name="theme-color" content="#FFE600" />
+  <meta name="description" content="Oferta selecionada. Compra segura pelo Mercado Livre com frete grátis e proteção ao comprador." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23FFE600' width='100' height='100' rx='20'/><text x='50' y='68' font-size='50' text-anchor='middle' fill='%232D3277' font-family='sans-serif' font-weight='bold'>M</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="dados.js"></script>
+  <style>
+    :root {
+      --yellow: #FFE600;
+      --green: #00A650;
+      --blue: #3483FA;
+      --text: #333;
+      --text-light: #666;
+      --bg: #EBEBEB;
+      --white: #FFFFFF;
+      --radius: 8px;
+      --shadow: 0 1px 2px rgba(0,0,0,0.08);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Header */
+    .header {
+      background: var(--yellow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .header-top {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .back-btn {
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: #2D3277;
+      padding: 4px 8px;
+      flex-shrink: 0;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .logo img {
+      height: 34px;
+      width: auto;
+      max-width: 150px;
+      object-fit: contain;
+      border-radius: 6px;
+      display: block;
+    }
+    .header-spacer { flex: 1; }
+
+    /* Main layout */
+    .product-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 12px 60px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    @media (min-width: 768px) {
+      .product-grid {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 0;
+      }
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 16px;
+      background: #fafafa;
+    }
+    .main-image-wrap {
+      position: relative;
+      aspect-ratio: 1;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .thumbs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .thumbs::-webkit-scrollbar { display: none; }
+    .thumb {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      background: white;
+    }
+    .thumb.active {
+      border-color: var(--blue);
+    }
+
+    /* Info */
+    .info {
+      padding: 20px 16px;
+    }
+    .breadcrumb {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+    .breadcrumb a { color: var(--blue); }
+    .product-title {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .product-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      font-size: 13px;
+      color: #666;
+    }
+    .stars {
+      color: #f5a623;
+      letter-spacing: 1px;
+    }
+    .price-box {
+      margin-bottom: 16px;
+    }
+    .price-old {
+      font-size: 14px;
+      color: #999;
+      text-decoration: line-through;
+    }
+    .price-current {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .price-discount {
+      display: inline-block;
+      background: #e8f5e9;
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+    }
+    .shipping {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .buy-btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    .buy-btn:hover { background: #2968c8; }
+    .buy-secondary {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: #e3f2fd;
+      color: var(--blue);
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+    }
+    .trust-note {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-top: 12px;
+      line-height: 1.45;
+      background: #f5f5f5;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 16px;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* Description */
+    .section-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px 16px;
+      margin-top: 16px;
+      box-shadow: var(--shadow);
+    }
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    .description-text {
+      font-size: 14px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    /* Reviews */
+    .reviews-summary {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .avg-score {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .avg-stars {
+      color: #f5a623;
+      font-size: 18px;
+    }
+    .review-count {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .review-item {
+      border-top: 1px solid #f0f0f0;
+      padding: 16px 0;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      color: #555;
+      flex-shrink: 0;
+    }
+    .review-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .review-date {
+      font-size: 12px;
+      color: #999;
+    }
+    .review-stars {
+      color: #f5a623;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .review-text {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+    .review-photo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Comment form */
+    .comment-form {
+      background: #f8f8f8;
+      border-radius: 10px;
+      padding: 16px;
+      margin-top: 20px;
+    }
+    .comment-form h4 {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    @media (max-width: 500px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #555;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+    }
+    .form-group textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .star-select {
+      display: flex;
+      gap: 4px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .star-select span {
+      color: #ddd;
+      transition: color 0.15s;
+    }
+    .star-select span.on {
+      color: #f5a623;
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--blue);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+    .submit-btn:hover { background: #2968c8; }
+
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: #999;
+    }
+    .not-found {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .not-found a {
+      color: var(--blue);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-top">
+      <button class="back-btn" onclick="goBack()">←</button>
+      <a href="index.html" class="logo" title="Afiliado Livre">
+        <img src="banner-afiliado.jpg" alt="Afiliado Livre" />
+      </a>
+      <div class="header-spacer"></div>
+    </div>
+  </header>
+
+  <div class="product-page" id="productPage">
+    <div class="loading">Carregando produto...</div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <a class="whatsapp-float"
+     href="https://wa.me/5511999999999?text=Oi!%20Vim%20pelo%20Afiliado%20Livre%20e%20quero%20saber%20sobre%20um%20produto"
+     target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script>
+    let currentProduct = null;
+    let selectedRating = 5;
+
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    function formatPrice(v) {
+      return Number(v).toFixed(2).replace('.', ',');
+    }
+
+    function goBack() {
+      if (document.referrer && document.referrer.includes(location.host)) {
+        history.back();
+      } else {
+        location.href = 'index.html';
+      }
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 2500);
+    }
+
+    function starsHtml(n) {
+      return '★'.repeat(n) + '☆'.repeat(5 - n);
+    }
+
+    function getLocalReviews(productId) {
+      try {
+        const data = JSON.parse(localStorage.getItem('reviews_' + productId) || '[]');
+        return Array.isArray(data) ? data : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveLocalReview(productId, review) {
+      const list = getLocalReviews(productId);
+      list.unshift(review);
+      localStorage.setItem('reviews_' + productId, JSON.stringify(list));
+    }
+
+    async function loadProduct() {
+      const id = parseInt(getParam('id'));
+      if (!id) {
+        showNotFound();
+        return;
+      }
+
+      let produtos = window.PRODUTOS_DATA || [];
+      if (!produtos.length) {
+        try {
+          await new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = 'dados.js?t=' + Date.now();
+            s.onload = resolve;
+            s.onerror = reject;
+            document.head.appendChild(s);
+          });
+          produtos = window.PRODUTOS_DATA || [];
+        } catch (e) {}
+      }
+
+      currentProduct = produtos.find(p => p.id === id);
+      if (!currentProduct) {
+        showNotFound();
+        return;
+      }
+
+      document.title = currentProduct.titulo + ' | Afiliado Livre';
+      renderProduct();
+    }
+
+    function showNotFound() {
+      document.getElementById('productPage').innerHTML = `
+        <div class="not-found">
+          <h2>Produto não encontrado</h2>
+          <p style="margin:12px 0;color:#666">O produto que você procura não existe ou foi removido.</p>
+          <a href="index.html">← Voltar para a loja</a>
+        </div>
+      `;
+    }
+
+    function renderProduct() {
+      const p = currentProduct;
+      const imagens = p.imagens && p.imagens.length ? p.imagens : [p.imagem];
+      const localReviews = getLocalReviews(p.id);
+      const allReviews = [...localReviews, ...(p.avaliacoes || [])];
+      const avg = allReviews.length
+        ? (allReviews.reduce((s, r) => s + (r.nota || 5), 0) / allReviews.length).toFixed(1)
+        : '5.0';
+
+      document.getElementById('productPage').innerHTML = `
+        <div class="product-grid">
+          <div class="gallery">
+            <div class="main-image-wrap">
+              <img class="main-image" id="mainImage" src="${imagens[0]}" alt="${p.titulo}" />
+            </div>
+            <div class="thumbs" id="thumbs">
+              ${imagens.map((img, i) => `
+                <img class="thumb ${i === 0 ? 'active' : ''}" src="${img}" data-src="${img}" alt="Foto ${i+1}" />
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="info">
+            <div class="breadcrumb">
+              <a href="index.html">Início</a> › ${p.categoria || 'Produto'}
+            </div>
+            <h1 class="product-title">${p.titulo}</h1>
+            <div class="product-meta">
+              <span class="stars">${starsHtml(Math.round(avg))}</span>
+              <span>${allReviews.length} avaliações</span>
+              <span>${p.vendidos || '0'} vendidos</span>
+            </div>
+            <div class="price-box">
+              ${p.precoAntigo ? `<div class="price-old">R$ ${formatPrice(p.precoAntigo)}</div>` : ''}
+              <div>
+                <span class="price-current">R$ ${formatPrice(p.preco)}</span>
+                ${p.desconto ? `<span class="price-discount">${p.desconto}% OFF</span>` : ''}
+              </div>
+            </div>
+            ${p.frete ? '<div class="shipping">🚚 Frete grátis</div>' : ''}
+            <a href="${p.link || '#'}" target="_blank" rel="noopener noreferrer sponsored" class="buy-btn">
+              Comprar no Mercado Livre
+            </a>
+            <button class="buy-secondary" onclick="goBack()">← Continuar comprando</button>
+            <div class="trust-note">
+              🛡️ Você será redirecionado ao site oficial do Mercado Livre.<br>
+              Pagamento, frete e garantia ficam 100% protegidos por eles.
+            </div>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <h2 class="section-title">Descrição</h2>
+          <p class="description-text">${p.descricao || 'Sem descrição disponível.'}</p>
+        </div>
+
+        <div class="section-card">
+          <h2 class="section-title">Opiniões sobre o produto</h2>
+          <div class="reviews-summary">
+            <div class="avg-score">${avg}</div>
+            <div>
+              <div class="avg-stars">${starsHtml(Math.round(avg))}</div>
+              <div class="review-count">${allReviews.length} comentário${allReviews.length !== 1 ? 's' : ''}</div>
+            </div>
+          </div>
+
+          <div id="reviewsList">
+            ${allReviews.length === 0 ? '<p style="color:#999;font-size:14px">Nenhuma avaliação ainda. Seja o primeiro!</p>' : ''}
+            ${allReviews.map(r => `
+              <div class="review-item">
+                <div class="review-header">
+                  <div class="review-avatar">${(r.nome || 'A')[0].toUpperCase()}</div>
+                  <div>
+                    <div class="review-name">${r.nome || 'Anônimo'}</div>
+                    <div class="review-date">${r.data || ''}</div>
+                  </div>
+                </div>
+                <div class="review-stars">${starsHtml(r.nota || 5)}</div>
+                <div class="review-text">${r.texto || ''}</div>
+                ${r.foto ? `<img class="review-photo" src="${r.foto}" alt="Foto do cliente" onclick="window.open(this.src)" />` : ''}
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="comment-form">
+            <h4>Deixe sua opinião</h4>
+            <div class="form-group">
+              <label>Sua nota</label>
+              <div class="star-select" id="starSelect">
+                <span data-v="1">★</span>
+                <span data-v="2">★</span>
+                <span data-v="3">★</span>
+                <span data-v="4">★</span>
+                <span data-v="5" class="on">★</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Seu nome *</label>
+                <input type="text" id="cNome" placeholder="Como quer aparecer" maxlength="40" />
+              </div>
+              <div class="form-group">
+                <label>URL da foto (opcional)</label>
+                <input type="url" id="cFoto" placeholder="https://..." />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Comentário *</label>
+              <textarea id="cTexto" placeholder="Conte como foi sua experiência com o produto..."></textarea>
+            </div>
+            <button class="submit-btn" onclick="submitReview()">Publicar comentário</button>
+          </div>
+        </div>
+      `;
+
+      // Thumbs
+      document.querySelectorAll('.thumb').forEach(thumb => {
+        thumb.addEventListener('click', () => {
+          document.getElementById('mainImage').src = thumb.dataset.src;
+          document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+          thumb.classList.add('active');
+        });
+      });
+
+      // Stars select
+      selectedRating = 5;
+      const starSelect = document.getElementById('starSelect');
+      if (starSelect) {
+        updateStarsUI(5);
+        starSelect.querySelectorAll('span').forEach(span => {
+          span.addEventListener('click', () => {
+            selectedRating = parseInt(span.dataset.v);
+            updateStarsUI(selectedRating);
+          });
+          span.addEventListener('mouseenter', () => updateStarsUI(parseInt(span.dataset.v)));
+        });
+        starSelect.addEventListener('mouseleave', () => updateStarsUI(selectedRating));
+      }
+    }
+
+    function updateStarsUI(n) {
+      document.querySelectorAll('#starSelect span').forEach(s => {
+        s.classList.toggle('on', parseInt(s.dataset.v) <= n);
+      });
+    }
+
+    function submitReview() {
+      const nome = document.getElementById('cNome').value.trim();
+      const texto = document.getElementById('cTexto').value.trim();
+      const foto = document.getElementById('cFoto').value.trim() || null;
+
+      if (!nome || !texto) {
+        showToast('Preencha nome e comentário');
+        return;
+      }
+
+      const review = {
+        nome,
+        texto,
+        foto,
+        nota: selectedRating,
+        data: new Date().toLocaleDateString('pt-BR')
+      };
+
+      saveLocalReview(currentProduct.id, review);
+      showToast('Comentário publicado!');
+      renderProduct();
+      // Scroll to reviews
+      setTimeout(() => {
+        document.getElementById('reviewsList')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    loadProduct();
+  </script>
+</body>
+</html>

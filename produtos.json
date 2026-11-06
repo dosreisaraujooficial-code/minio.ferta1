@@ -1,0 +1,296 @@
+[
+  {
+    "id": 1,
+    "titulo": "Espelho Oval Decorativo 100x40cm Lapidado",
+    "preco": 85.90,
+    "precoAntigo": 199.80,
+    "desconto": 57,
+    "imagem": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "1000+",
+    "categoria": "casa",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Espelho oval decorativo de alta qualidade, medindo 100x40cm, com bordas lapidadas que dão um toque sofisticado a qualquer ambiente. Ideal para salas, quartos e hall de entrada. A moldura é discreta e elegante, valorizando a decoração. Fácil de instalar, acompanha kit de fixação. Superfície espelhada de alta definição, sem distorção.",
+    "avaliacoes": [
+      {
+        "nome": "Ana Paula R.",
+        "nota": 5,
+        "texto": "Chegou super bem embalado e o espelho é lindo demais! Ficou perfeito na minha sala. Recomendo muito.",
+        "foto": "https://images.unsplash.com/photo-1618220179428-22790b461013?w=300&h=300&fit=crop",
+        "data": "15/10/2025"
+      },
+      {
+        "nome": "Carlos M.",
+        "nota": 5,
+        "texto": "Qualidade excelente pelo preço. Já comprei o segundo para o quarto. Entrega rápida.",
+        "foto": null,
+        "data": "02/11/2025"
+      },
+      {
+        "nome": "Juliana F.",
+        "nota": 4,
+        "texto": "Muito bonito, só achei a embalagem um pouco simples, mas o produto em si é top.",
+        "foto": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=300&h=300&fit=crop",
+        "data": "28/09/2025"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Espelho Corpo Inteiro 100x50cm Moldura Madeira",
+    "preco": 98.90,
+    "precoAntigo": 199.90,
+    "desconto": 50,
+    "imagem": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "800+",
+    "categoria": "casa",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Espelho de corpo inteiro com moldura em madeira natural, medidas 100x50cm. Perfeito para quartos, closets e lojas. Design minimalista que combina com qualquer estilo de decoração. Vidro de alta qualidade com tratamento antirreflexo. Fixação segura na parede.",
+    "avaliacoes": [
+      {
+        "nome": "Fernanda L.",
+        "nota": 5,
+        "texto": "Amei! O tamanho é perfeito e a moldura de madeira deixou o quarto muito mais elegante.",
+        "foto": "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=300&h=300&fit=crop",
+        "data": "20/10/2025"
+      },
+      {
+        "nome": "Roberto S.",
+        "nota": 5,
+        "texto": "Produto de ótima qualidade. Chegou antes do prazo e bem protegido.",
+        "foto": null,
+        "data": "05/11/2025"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Suporte Celular Garra Aranha para Moto e Bike",
+    "preco": 30.90,
+    "precoAntigo": 59.90,
+    "desconto": 48,
+    "imagem": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "2500+",
+    "categoria": "eletronicos",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Suporte de celular tipo garra aranha, ideal para moto, bike e até no carro. Fixação firme e segura, ajustável para diversos tamanhos de smartphones. Material resistente a vibração e intempéries. Rotação 360° para melhor visualização do GPS.",
+    "avaliacoes": [
+      {
+        "nome": "Pedro H.",
+        "nota": 5,
+        "texto": "Uso todo dia na moto e não cai nunca. Melhor custo-benefício que já comprei.",
+        "foto": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=300&h=300&fit=crop",
+        "data": "12/10/2025"
+      },
+      {
+        "nome": "Lucas T.",
+        "nota": 5,
+        "texto": "Chegou rápido e funciona perfeitamente. Recomendo!",
+        "foto": null,
+        "data": "01/11/2025"
+      },
+      {
+        "nome": "Marina G.",
+        "nota": 4,
+        "texto": "Bom produto, segura bem o celular. Só a instalação no guidão que é um pouco trabalhosa.",
+        "foto": null,
+        "data": "25/09/2025"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Kit 2 Espelhos Orgânicos Irregulares Parede",
+    "preco": 129.90,
+    "precoAntigo": 249.90,
+    "desconto": 48,
+    "imagem": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "450+",
+    "categoria": "casa",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Kit com 2 espelhos de formato orgânico irregular, tendência na decoração atual. Criam um efeito visual único na parede. Vidro de alta qualidade com bordas polidas. Ideais para salas, hall e banheiros. Acompanha acessórios de fixação.",
+    "avaliacoes": [
+      {
+        "nome": "Camila R.",
+        "nota": 5,
+        "texto": "Ficaram lindos na parede da sala! Todo mundo pergunta onde comprei.",
+        "foto": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=300&h=300&fit=crop",
+        "data": "18/10/2025"
+      },
+      {
+        "nome": "Bruno A.",
+        "nota": 5,
+        "texto": "Qualidade top e visual moderno. Vale cada centavo.",
+        "foto": null,
+        "data": "30/10/2025"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Fone Bluetooth TWS com Cancelamento de Ruído",
+    "preco": 79.90,
+    "precoAntigo": 159.90,
+    "desconto": 50,
+    "imagem": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "3200+",
+    "categoria": "eletronicos",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Fones de ouvido Bluetooth TWS com cancelamento ativo de ruído (ANC). Bateria de longa duração (até 30h com o case). Toque sensível, microfone com redução de ruído para chamadas. Compatível com Android e iOS. Estojo de carregamento inclusivo.",
+    "avaliacoes": [
+      {
+        "nome": "Thiago V.",
+        "nota": 5,
+        "texto": "Som excelente e o cancelamento de ruído realmente funciona. Uso no metrô todos os dias.",
+        "foto": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&h=300&fit=crop",
+        "data": "08/10/2025"
+      },
+      {
+        "nome": "Larissa P.",
+        "nota": 5,
+        "texto": "Melhor fone custo-benefício que já tive. Bateria dura o dia inteiro.",
+        "foto": null,
+        "data": "22/10/2025"
+      },
+      {
+        "nome": "Diego N.",
+        "nota": 4,
+        "texto": "Muito bom, só o case que risca fácil. O som é ótimo.",
+        "foto": null,
+        "data": "03/11/2025"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Organizador de Maquiagem Acrílico 3 Andares",
+    "preco": 49.90,
+    "precoAntigo": 89.90,
+    "desconto": 44,
+    "imagem": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "1800+",
+    "categoria": "beleza",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Organizador de maquiagem em acrílico transparente com 3 andares. Compartimentos para batons, pincéis, bases e acessórios. Design elegante que facilita encontrar seus produtos. Fácil de limpar e montar. Ideal para penteadeiras e banheiros.",
+    "avaliacoes": [
+      {
+        "nome": "Beatriz C.",
+        "nota": 5,
+        "texto": "Organizou minha vida! Tudo fica visível e fácil de pegar. Amei.",
+        "foto": "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=300&h=300&fit=crop",
+        "data": "14/10/2025"
+      },
+      {
+        "nome": "Patricia M.",
+        "nota": 5,
+        "texto": "Material de boa qualidade e muito espaçoso. Recomendo.",
+        "foto": null,
+        "data": "29/10/2025"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Camiseta Oversized Algodão Premium Unissex",
+    "preco": 59.90,
+    "precoAntigo": 99.90,
+    "desconto": 40,
+    "imagem": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "950+",
+    "categoria": "moda",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Camiseta oversized unissex em algodão premium 100%. Modelagem soltinha e confortável, ideal para o dia a dia. Tecido macio que não encolhe na lavagem. Disponível em várias cores. Costura reforçada e acabamento de qualidade.",
+    "avaliacoes": [
+      {
+        "nome": "Gabriel O.",
+        "nota": 5,
+        "texto": "Tecido muito bom e o caimento oversized ficou perfeito. Já quero comprar mais cores.",
+        "foto": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop",
+        "data": "10/10/2025"
+      },
+      {
+        "nome": "Amanda K.",
+        "nota": 4,
+        "texto": "Gostei bastante, só pedi um tamanho maior da próxima vez. Qualidade boa.",
+        "foto": null,
+        "data": "27/10/2025"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Luminária de Mesa LED Touch Dimmerável",
+    "preco": 69.90,
+    "precoAntigo": 129.90,
+    "desconto": 46,
+    "imagem": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=600&h=600&fit=crop",
+    "imagens": [
+      "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1618220179428-22790b461013?w=800&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1615874959474-d609969a20ed?w=800&h=800&fit=crop"
+    ],
+    "frete": true,
+    "vendidos": "1100+",
+    "categoria": "casa",
+    "link": "https://www.mercadolivre.com.br/",
+    "descricao": "Luminária de mesa com LED e controle touch dimmerável (3 níveis de intensidade). Design moderno e minimalista. Ideal para home office, quarto e mesa de estudos. Baixo consumo de energia e luz agradável aos olhos. Base estável e cabo longo.",
+    "avaliacoes": [
+      {
+        "nome": "Ricardo B.",
+        "nota": 5,
+        "texto": "Perfeita para o home office. O toque para ajustar a luz é muito prático.",
+        "foto": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=300&h=300&fit=crop",
+        "data": "16/10/2025"
+      },
+      {
+        "nome": "Sofia E.",
+        "nota": 5,
+        "texto": "Linda e funcional. A luz é suave e não cansa a vista.",
+        "foto": null,
+        "data": "04/11/2025"
+      }
+    ]
+  }
+]
